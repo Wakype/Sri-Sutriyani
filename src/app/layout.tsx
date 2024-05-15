@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import * as React from 'react';
 import Providers from './providers';
+import ProgressBarClient from '@/components/ProgressBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} w-full h-full`}>
+        <ProgressBarClient />
         <Providers>
           <main>{children}</main>
         </Providers>

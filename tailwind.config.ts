@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'custom-inset': 'inset 5px 0px 0px 0px rgba(186, 112, 79, 1)',
+      },
       colors: {
         primary: '#BA704F',
         putih: '#FFFCFB',

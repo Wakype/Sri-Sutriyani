@@ -12,7 +12,6 @@ const Page: NextPage<Props> = ({}) => {
         columns={daftarProduk.columns}
         title="daftar produk"
         addTitle="+ tambah produk"
-        addHref="tambah-produk"
         isAddPage
       />
     </div>

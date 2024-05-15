@@ -13,6 +13,7 @@ interface Props {
 const RootLayout: NextPage<Props> = ({ children }) => {
   const pathname = usePathname();
   const currentNav = pathname?.split('/')[2];
+
   return (
     <div className="w-full bg-white lg:grid lg:grid-cols-7">
       <section className="sticky top-0 col-span-1 hidden h-screen w-full flex-col justify-start space-y-12 overflow-y-scroll bg-white py-[30px] shadow-lg lg:flex">
@@ -37,7 +38,7 @@ const RootLayout: NextPage<Props> = ({ children }) => {
                   currentNav == nav.href.split('/')[2]
                     ? 'text-white bg-primary font-semibold'
                     : 'text-black font-medium'
-                } text-lg py-3 px-8 hover:bg-primary capitalize hover:text-white transition-all ease-in-out`}
+                } text-lg py-3 px-8 hover:bg-[#BA704F20] hover:shadow-custom-inset capitalize hover:text-black transition-all ease-in-out`}
               >
                 {nav.label}
               </Link>

@@ -13,7 +13,7 @@ const CustomButton: React.FC<props> = ({ children, ...props }) => {
       textTransform={'capitalize'}
       color={'white'}
       _hover={{
-        bg: '#ab5f3c',
+        bg: 'primary',
       }}
     >
       {children}
