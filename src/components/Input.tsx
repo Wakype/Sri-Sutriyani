@@ -1,14 +1,16 @@
-import React, { HTMLInputTypeAttribute } from 'react';
+// CustomInput.tsx
+import React, { HTMLInputTypeAttribute, useState } from 'react';
 import {
   FormControl,
   FormErrorMessage,
   FormLabel,
   Input,
   InputGroup,
-  InputProps,
+  InputRightElement,
 } from '@chakra-ui/react';
+import { HiEye, HiEyeOff } from 'react-icons/hi';
 
-interface Props extends InputProps {
+interface Props {
   id: string;
   errorMessage?: string;
   isInvalid?: boolean;
@@ -26,6 +28,12 @@ const CustomInput: React.FC<Props> = ({
   noLabel = false,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <FormControl isInvalid={isInvalid}>
       {!noLabel && (
@@ -35,13 +43,20 @@ const CustomInput: React.FC<Props> = ({
       )}
       <InputGroup size="md">
         <Input
-          type={type || 'text'}
+          type={showPassword ? 'text' : type || 'text'}
           id={id}
           color="black"
           bg="#97979780"
           variant="filled"
           {...props}
         />
+        {type === 'password' && (
+          <InputRightElement width="4.5rem">
+            <button onClick={togglePasswordVisibility}>
+              {showPassword ? <HiEyeOff /> : <HiEye />}
+            </button>
+          </InputRightElement>
+        )}
       </InputGroup>
       {errorMessage && (
         <FormErrorMessage size="xs" color="red">
